@@ -23,22 +23,9 @@ exports.config = {
 
 	// Organize spec files into suites. To run specific suite, --suite=<name of suite>
 	suites: {
-
-//		asset: ['../Features/apmLogin.feature','../../Test_Modules/Assets/Features/asset-example.feature'],
-
-		//chart: ['../../Team_Example/Chart/Features/wfvChartExample.feature'],
-
-		test: ['../Features/apmLogin.feature'],
-
-//		highchart: ['../../Test_Modules/Highchart/Features/Highchart.feature'],
-
-//		rest: ["../../Test_Modules/RestAPIExample/Features/rest-example.feature"],
-
-//		resthighchart: ["../../Test_Modules/RestAPIExample/Features/rest-example-highchart.feature"],
-
-//		deletepage: ['../Features/apmLogin.feature','../../Test_Modules/SinglePage/Features/Singlepage.feature']
-
-},
+		login: ['../Features/Login.feature'],
+//		signup: ['../Features/Signup.feature'],
+    },
 
 	capabilities: {
 		browserName: 'chrome',
@@ -98,10 +85,10 @@ exports.config = {
 
 	maxSessions: -1,
 
-	allScriptsTimeout: 250000,
+	allScriptsTimeout: 30000,
 
 	// How long to wait for a page to load.
-	getPageTimeout: 650000,
+	getPageTimeout: 120000,
 
 	// Before launching the application
 	beforeLaunch: function () {
@@ -125,7 +112,7 @@ exports.config = {
 		browser.manage().deleteAllCookies();
 		browser.manage().timeouts().pageLoadTimeout(50000);
 		browser.manage().timeouts().implicitlyWait(50000);
-		browser.driver.manage().window().setSize(1280, 1440);
+		browser.driver.manage().window().maximize();
 
 		chai = require('chai');
 		expect = chai.expect;
@@ -134,11 +121,11 @@ exports.config = {
 		fs = require('fs');
 
 		// Initializing page object variables
-		loginPage = require('../PageObjects/apm-login-po.js');
-		loginSpec = require('../step_definitions/login-spec.js');
-		apmlandingPage = require('../PageObjects/apm-landing-po.js');
-		wfvPage = require('../PageObjects/wfv-po.js');
-		assetTenantPage = require('../PageObjects/asset-tenant-po.js');
+		loginPage = require('../PageObjects/login.js');
+		apmlandingPage = require('../PageObjects/landing.js');
+
+        loginSpec = require('../step_definitions/login-spec.js');
+
 
 		// Initializing necessary utils from ProUI-Utils module
 		TestHelper = require('ProUI-Utils').TestHelper;
@@ -171,13 +158,20 @@ exports.config = {
 
 	},
 
-// Browser parameters for feature files.
+    // Browser parameters for feature files.
 	params: {
 		login: {
 			baseUrl: 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/',
 			"username": "predix_admin",
 			"password": "IM_SO_SECRET",
+		},
+		signup: {
+		    baseUrl: '',
+		    "username": "",
+		    "password": "",
+		    "reason": "",
 		}
+
 	},
 
 	resultJsonOutputFile: null,
@@ -196,11 +190,7 @@ exports.config = {
             '../step_definitions/env.js',
             '../step_definitions/login-spec.js',
             '../../Test_Modules/Assets/step_definitions/*',
-            '../../node_modules/proui-utils/Compressed_Utils/Reporter.js',
-            '../../Test_Modules/Highchart/step_definitions/*',
-            '../../Test_Modules/RestAPIExample/step_definitions/rest-example-step-def-highchart.js',
-			'../../Test_Modules/RestAPIExample/step_definitions/rest-example-step-def.js',
-			'../../Test_Modules/SinglePage/Step_Definitions/singlepage-step-def.js'
+            '../../node_modules/proui-utils/Compressed_Utils/Reporter.js'
 		],
 
 		//format: 'pretty'

@@ -10,7 +10,7 @@ id = setTimeout(TimeoutHandler, 10);
 console.log ('SET');
 
 var configure = function () {
-	this.setDefaultTimeout(1000000);
+	this.setDefaultTimeout(30000);
 };
 
 module.exports = configure;

@@ -31,7 +31,7 @@
     "landingPage": {
         "assetTab": {
             "locatorType": "xpath",
-            "locatorValue": "//title[text()=\"Predix Starter Kit\"]"
+            "locatorValue": "//*[contains(text(),'Predix Starter Kit')]"
         },
 
         "casesTab": {

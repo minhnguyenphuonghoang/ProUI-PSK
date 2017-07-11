@@ -1,12 +1,12 @@
-/**
- * Created by 212556710 on 4/21/2016.
- */
+
+/* Created By:     MinhNguyen
+ * Created Date:   Jul 10, 2017
+*/
 
 
-    // Team_Example Login
 module.exports = function() {
    // this.APMLogin = function () {
-        this.Given(/^I login to (.*)$/, function (env, callback) {
+        this.Given(/^I navigate to (.*)$/, function (env, callback) {
             env = browser.params.login.url;
             loginPage.getLogin(env).then(function (completed) {
                 browser.ignoreSynchronization = true;

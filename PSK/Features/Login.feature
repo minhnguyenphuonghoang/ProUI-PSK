@@ -1,9 +1,9 @@
 @regression
-Feature: User Can Login to APM as Admin
+Feature: User Can Login
 
   Scenario Outline: US6400:Login as admin and view Asset Management
 
-    Given I login to <env>
+    Given I navigate to <env>
     When  I authenticate with valid <user_name> and <password>
     Then  I should see the landing page
 
