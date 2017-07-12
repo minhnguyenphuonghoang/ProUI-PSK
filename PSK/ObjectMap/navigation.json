@@ -1,0 +1,25 @@
+{
+    "navigation": {
+        "Admin": {
+            "locatorType": "xpath",
+            "locatorValue": "//ul[@id='navitemlist']//a/span[text()='Admin']"
+        },
+        "Admin_UsersManagement": {
+            "locatorType": "xpath",
+            "locatorValue": "//ul[@id='navitemlist']//span[text()='Users management']"
+        }
+//        "Admin": {
+//            "locatorType": "xpath",
+//            "locatorValue": ""
+//        },
+//        "Admin": {
+//            "locatorType": "xpath",
+//            "locatorValue": ""
+//        },
+//        "Admin": {
+//            "locatorType": "xpath",
+//            "locatorValue": ""
+//        }
+
+    }
+}

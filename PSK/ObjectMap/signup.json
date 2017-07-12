@@ -1,0 +1,32 @@
+{
+    "signupPage": {
+        "email": {
+            "locatorType": "id",
+            "locatorValue": "txtEmail"
+        },
+        "firstName": {
+            "locatorType": "id",
+            "locatorValue": "txtFirstName"
+        },
+        "lastName": {
+            "locatorType": "id",
+            "locatorValue": "txtLastName"
+        },
+        "reason": {
+            "locatorType": "id",
+            "locatorValue": "txtDescription"
+        },
+        "submitButton": {
+            "locatorType": "xpath",
+            "locatorValue": "//button[contains(text(),'Submit')]"
+        },
+        "signUpTitle": {
+            "locatorType": "xpath",
+            "locatorValue": "//*[contains(@id,'sign-up-done')]/div/p"
+        },
+        "signUpSuccessfulMessage": {
+            "locatorType": "xpath",
+            "locatorValue": "//*[contains(@id,'sign-up-done')]/div/div[2]/p"
+        }
+    }
+}

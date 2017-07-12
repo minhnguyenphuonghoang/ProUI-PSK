@@ -15,7 +15,7 @@ module.exports = function() {
     });
 
 
-    this.When(/^I authenticate with valid (.*) and (.*)$/, function (userName, password, callback) {
+    this.When(/^I sign up with valid (.*) and (.*)$/, function (userName, password, callback) {
         userName = browser.params.login.username;
         password = browser.params.login.password;
         console.log(userName);
