@@ -29,6 +29,10 @@
         }
     },
     "landingPage": {
+        "title": {
+            "locatorType": "xpath",
+            "locatorValue": "//title[text()='Predix Starter Kit']"
+        },
         "assetTab": {
             "locatorType": "xpath",
             "locatorValue": "//*[contains(text(),'Predix Starter Kit')]"

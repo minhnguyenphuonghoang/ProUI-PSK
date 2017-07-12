@@ -131,7 +131,7 @@ exports.config = {
 		TestHelper = require('ProUI-Utils').TestHelper;
 		ElementManager = require('ProUI-Utils').ElementManager;
 		Logger = require('ProUI-Utils').Logger;
-		cem = new ElementManager('../../../Common_Template/common-element-repo.json');
+		cem = new ElementManager('../../../PSK/common-element-repo.json');
 		TestHelper.setElementManager(cem);
         RestHelper = require('ProUI-Utils').RestHelper;
 
@@ -166,10 +166,14 @@ exports.config = {
 			"password": "IM_SO_SECRET",
 		},
 		signup: {
-		    baseUrl: '',
+		    baseUrl: 'https://predix-psk-landing-page-lab.run.aws-usw02-pr.ice.predix.io/#/signup',
 		    "username": "",
 		    "password": "",
 		    "reason": "",
+		    "first_name": "Test",
+		    "last_name": "Automation",
+		    "admin_user_name": "predix_admin",
+		    "admin_password": "IM_SO_SECRET",
 		}
 
 	},

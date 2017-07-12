@@ -42,18 +42,7 @@
 
             checkHomePage: function() {
                 browser.waitForAngular();
-//                var title = cem.findElement('landingPage','assetTab');
-//                var EC = protractor.ExpectedConditions;
-//                var el = element(by.xpath('//div[@style="display: none;" and contains(@class,"overlay-loading style-scope instance-view")]'));
-//                browser.wait(EC.visibilityOf(el), 10000);
-
-//                var title = browser.driver.wait(until.(
-//                console.log(title);
-                var title = browser.wait(function(){
-//                    return cem.findElement('landingPage','assetTab');
-                    return element(by.xpath("//*[contains(text(),'Predix Starter Kit')]"), 30000).isPresent();},30000);
-//                console.log(title);
-//                console.log();
+                var title = cem.findElement('landingPage','title');
                 return title.isPresent();
 
             },

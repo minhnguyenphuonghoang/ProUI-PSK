@@ -1,7 +1,7 @@
 @regression
 Feature: User Can Login
 
-  Scenario Outline: US6400:Login as admin and view Asset Management
+  Scenario Outline: Login as Admin
 
     Given I navigate to <env>
     When  I authenticate with valid <user_name> and <password>
