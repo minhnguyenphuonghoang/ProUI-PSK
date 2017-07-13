@@ -73,7 +73,7 @@
                 var el = element(by.xpath("//div[@id='public_maildirdiv']/div/div[1]//div[contains(text(),'[PSK] Welcome to Predix Starter Kit!')]"));
                 browser.wait(EC.visibilityOf(el), 30000);
                 el.click();
-                return browser.sleep(2000);
+                return browser.sleep(10000);
             },
 
             openRegistrationLink: function () {
@@ -110,7 +110,6 @@
 //                browser.driver.switchTo().defaultContent();
 //                browser.driver.get('https://www.google.com.vn/');
 //                fs.readFile('');
-                browser.sleep(15000);
                 fs.readFile('D:/ProUI-PSK/url.txt', 'utf8', function (err,data) {
                     if (err) {
                         return console.log(err);
@@ -118,7 +117,7 @@
                     browser.ignoreSynchronization = true;
                     browser.driver.get(data);
                 });
-                return browser.sleep(1000);
+                return browser.sleep(2000);
             },
 
             checkSuccessfullyMessage: function() {

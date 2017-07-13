@@ -23,7 +23,7 @@ exports.config = {
 
 	// Organize spec files into suites. To run specific suite, --suite=<name of suite>
 	suites: {
-//		login: ['../Features/Login.feature'],
+		login: ['../Features/Login.feature'],
 		signup: ['../Features/Signup.feature'],
     },
 
@@ -137,7 +137,6 @@ exports.config = {
 		TestHelper.setElementManager(cem);
         RestHelper = require('ProUI-Utils').RestHelper;
 
-        fs = require('fs');
 		//commonTestData = require('../TestData/common-test-data.json').data;
 	},
 
@@ -172,7 +171,7 @@ exports.config = {
 		},
 		signup: {
 		    baseUrl: 'https://predix-psk-landing-page-lab.run.aws-usw02-pr.ice.predix.io/#/signup',
-		    "email": "psktest123@mailinator.com",
+		    "email": "psktest12@mailinator.com",
 		    "password": "12345678",
 		    "reason": "This is a reason",
 		    "firstName": "Test",
