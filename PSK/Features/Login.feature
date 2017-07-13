@@ -1,5 +1,5 @@
 @regression
-Feature: Login features
+Feature: Login feature
 
   Scenario Outline: Login as Admin
 

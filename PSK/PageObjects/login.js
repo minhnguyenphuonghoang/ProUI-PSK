@@ -36,7 +36,7 @@
             },
 
             getLogin: function (url) {
-                browser.driver.get(browser.params.login.baseUrl)
+                browser.driver.get(browser.params.login.baseUrl);
                 return browser.driver.isElementPresent(by.xpath('//*[@value="Sign in"]'));
             },
 

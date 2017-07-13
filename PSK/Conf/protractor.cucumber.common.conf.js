@@ -171,7 +171,7 @@ exports.config = {
 		},
 		signup: {
 		    baseUrl: 'https://predix-psk-landing-page-lab.run.aws-usw02-pr.ice.predix.io/#/signup',
-		    "email": "psktest12@mailinator.com",
+		    "email": "psktest12345@mailinator.com",
 		    "password": "12345678",
 		    "reason": "This is a reason",
 		    "firstName": "Test",
@@ -189,7 +189,7 @@ exports.config = {
 
 	// If true, protractor will restart the browser between each test.
 	// CAUTION: This will cause your tests to slow down drastically.
-	restartBrowserBetweenTests: false,
+	restartBrowserBetweenTests: true,
 
 	// Custom framework in this case cucumber
 	framework: 'custom',

@@ -1,5 +1,5 @@
 @regression
-Feature: User Can Sign Up
+Feature: Signup feature
 
   Scenario Outline: Sign up a user with all valid information
 

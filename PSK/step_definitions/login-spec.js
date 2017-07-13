@@ -18,8 +18,6 @@ module.exports = function() {
     this.When(/^I authenticate with valid (.*) and (.*)$/, function (userName, password, callback) {
         userName = browser.params.login.username;
         password = browser.params.login.password;
-        console.log(userName);
-        console.log(password);
         loginPage.setName(userName).then(function () {
             loginPage.setPassword(password).then(function () {
                 loginPage.clickLogin().then(function () {

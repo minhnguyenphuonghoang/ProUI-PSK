@@ -39,7 +39,11 @@
             },
 
             getSignup: function (url) {
-                browser.driver.get(browser.params.signup.baseUrl)
+                browser.driver.get(browser.params.signup.baseUrl);
+                browser.ignoreSynchronization = true;
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath('//input[@id="txtEmail"]'));
+                browser.wait(EC.visibilityOf(el), 5000);
                 return browser.driver.isElementPresent(by.xpath('//input[@id="txtEmail"]'));
 //                return cem.findElement(currentPage, 'email');
             },
@@ -50,6 +54,7 @@
             },
 
             setPassword: function (password) {
+                browser.ignoreSynchronization = false;
                 var EC = protractor.ExpectedConditions;
                 var el = element(by.name("password"));
                 browser.wait(EC.visibilityOf(el), 5000);
@@ -121,7 +126,9 @@
             },
 
             checkSuccessfullyMessage: function() {
-                browser.waitForAngular();
+                var EC = protractor.ExpectedConditions;
+                var test_el = element(by.xpath("//*[contains(@id,'sign-up-done')]/div/div[2]/p"));
+                browser.wait(EC.visibilityOf(test_el), 30000);
                 var message = cem.findElement('signupPage','signUpSuccessfulMessage');
                 return message.isPresent();
             }
