@@ -55,9 +55,19 @@ module.exports = function() {
 
 
     this.Then(/^I can use (.*) and (.*) to log in$/, function (username, password, callback) {
-        // Write code here that turns the phrase above into concrete actions
-        callback(null, 'pending');
+        username = browser.params.signup.email;
+        password = browser.params.signup.password;
+        loginPage.setName(userName).then(function () {
+            loginPage.setPassword(password).then(function () {
+                loginPage.clickLogin().then(function () {
+                    callback();
+                });
+            });
+        });
     });
+
+
+
 
 
 };

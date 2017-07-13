@@ -17,14 +17,25 @@
     var UsersManagement = function () {
 
         return {
-            clickAdmin: function () {
-                return cem.findElement(currentPage,'admin').sendKeys(protractor.Key.ENTER);
+//            clickAdmin: function () {
+//                return cem.findElement(currentPage,'admin').sendKeys(protractor.Key.ENTER);
+//            },
+
+            setEmailFilter: function (email) {
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath("//*[@header-text='Users management']/*[@role='tabpanel']/div[1]//div[@id='scrollBodyTableContainer']/div[2]/span[1]/input[@placeholder='Filter']"));
+                browser.wait(EC.visibilityOf(el), 15000);
+                return cem.findElement(currentPage,'emailFilter').sendKeys(email);
             },
 
-            this.Then(/^I can accept the account registration request$/, function (callback) {
-                // Write code here that turns the phrase above into concrete actions
-                callback(null, 'pending');
-            });
+            clickApprove: function () {
+                browser.sleep(1000);
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath("//*[@header-text='Users management']/*[@role='tabpanel']/div[1]//div[@id='scrollBodyTableContainer']/div[3]/*[contains(@class, 'aha-action')]/aha-html-echo/div/a[1]"));
+                browser.wait(EC.visibilityOf(el), 15000);
+//                return cem.findElement(currentPage,'acceptFirstRow').sendKeys(protractor.Key.ENTER);
+                return cem.findElement(currentPage,'acceptFirstRow').click();
+            }
 
 
 

@@ -36,17 +36,6 @@ module.exports = function() {
                 });
             });
         });
-
-
-
-//        loginPage.setName(userName).then(function () {
-//            loginPage.setPassword(password).then(function () {
-//                loginPage.clickLogin().then(function () {
-//                    callback();
-//                });
-//            });
-//        });
-
     });
 
 
@@ -60,35 +49,34 @@ module.exports = function() {
 
 
 
+    this.When(/^I open the registration link$/, function (callback) {
+        email = browser.params.signup.email;
+        email = email.replace('@mailinator.com','');
+
+        url = 'https://www.mailinator.com/inbox2.jsp?to=<email_here>#/#public_maildirdiv'
+        url = url.replace('<email_here>', email);
+        signupPage.openMailServer(url).then(function () {
+            signupPage.clickRegistrationMail().then(function () {
+                signupPage.openRegistrationLink().then(function () {
+                    callback();
+                });
+            });
+        });
+
+    });
 
 
+    this.Then(/^I can create password$/, function (callback) {
+        password = browser.params.signup.password;
+        signupPage.setPassword(password).then(function () {
+            signupPage.setConfirmPassword(password).then(function () {
+                signupPage.clickSignUpButton().then(function () {
+                    callback();
+                });
+            });
 
-//
-//    this.When(/^Admin accepts the sign up request$/, function (callback) {
-//
-//
-//
-//        loginURL = browser.params.login.url;
-//        loginPage.getLogin(loginURL).then(function (completed) {
-//            browser.ignoreSynchronization = true;
-//            assert.isTrue(completed, 'Not Login page');
-//            callback();
-//        });
-//
-//
-//        email = browser.params.signup.email;
-//        firstName = browser.params.signup.firstName;
-//        lastName = browser.params.signup.lastName;
-//        reason = browser.params.signup.reason;
-
-//        loginPage.setName(userName).then(function () {
-//            loginPage.setPassword(password).then(function () {
-//                loginPage.clickLogin().then(function () {
-//                    callback();
-//                });
-//            });
-//        });
-//    });
+        });
+    });
 
 };
 

@@ -12,10 +12,9 @@ Feature: User Can Sign Up
     When  I navigate to Admin - Users Management page
     Then  I can accept the account registration request
     When  I sign out
-    When  I navigate to login page <env>
-    Then  I can use <username> and <password> to log in
-    And   I should see the landing page
-
+    When  I open the registration link
+    Then  I can create password
+    Then  I should see the landing page
 
     Examples:
       | env | user_name | password |

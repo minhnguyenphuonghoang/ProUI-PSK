@@ -33,14 +33,19 @@
                 return cem.findElement(currentPage,'signOut').sendKeys(protractor.Key.ENTER);
             },
 
-            navigateToAdmin_UserManagement: function (url) {
-                browser.driver.get(url)
+            navigateToAdmin_UserManagement: function () {
+                url = browser.params.navigation.admin_UsersManagement;
+                browser.driver.get(url);
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath("//*[@id='tabPending']"));
+                browser.wait(EC.visibilityOf(el), 15000);
                 return browser.driver.isElementPresent(by.id('tabPending'));
             },
 
             navigateToSignOut: function () {
                 browser.driver.get(url);
-                browser.driver.sleep(3000);
+                return browser.driver.sleep(3000);
+
             }
 
 

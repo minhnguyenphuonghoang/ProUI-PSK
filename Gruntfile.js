@@ -5,11 +5,6 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        // 0. clean
-//        clean: {
-//            tests: ['tmp']
-//        },
-
         // 1. jshint
         jshint: {
             files: ['Gruntfile.js', 'step_definitions/*.js'],
@@ -138,13 +133,10 @@ module.exports = function(grunt) {
 
     var target = grunt.option('target') || 'def';
 
-    grunt.loadTasks('tasks');
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
     grunt.loadNpmTasks('grunt-execute');
-
-//    grunt.loadNpmTasks('grunt-contrib-jshint');
 
     grunt.loadNpmTasks('grunt-shell-spawn');
 

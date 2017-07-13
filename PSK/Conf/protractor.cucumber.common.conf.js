@@ -125,7 +125,7 @@ exports.config = {
 		signupPage = require('../PageObjects/signup.js');
 		landingPage = require('../PageObjects/landing.js');
         navigation = require('../PageObjects/navigation.js');
-
+        usersManagement = require('../PageObjects/usersManagement.js');
         loginSpec = require('../step_definitions/login-spec.js');
 
 
@@ -137,6 +137,7 @@ exports.config = {
 		TestHelper.setElementManager(cem);
         RestHelper = require('ProUI-Utils').RestHelper;
 
+        fs = require('fs');
 		//commonTestData = require('../TestData/common-test-data.json').data;
 	},
 
@@ -171,12 +172,11 @@ exports.config = {
 		},
 		signup: {
 		    baseUrl: 'https://predix-psk-landing-page-lab.run.aws-usw02-pr.ice.predix.io/#/signup',
-		    "email": "bbb@mailinator.com",
-		    "password": "",
-		    "reason": "this is a reason",
+		    "email": "psktest123@mailinator.com",
+		    "password": "12345678",
+		    "reason": "This is a reason",
 		    "firstName": "Test",
 		    "lastName": "Automation",
-
 		},
 		navigation: {
 		    "admin_UsersManagement": 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/#/admin/registration-requests',
@@ -199,11 +199,9 @@ exports.config = {
 
 		// define your step definitions in this file
 		require: [
-//            '../step_definitions/env.js',
-//            '../step_definitions/login-spec.js',
             '../step_definitions/*.js',
-            '../../Test_Modules/Assets/step_definitions/*',
-            '../../node_modules/proui-utils/Compressed_Utils/Reporter.js'
+//            '../../Test_Modules/Assets/step_definitions/*',
+//            '../../node_modules/proui-utils/Compressed_Utils/Reporter.js'
 		],
 
 		//format: 'pretty'

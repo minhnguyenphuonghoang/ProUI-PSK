@@ -393,6 +393,18 @@
         "signUpSuccessfulMessage": {
             "locatorType": "xpath",
             "locatorValue": "//*[contains(@id,'sign-up-done')]/div/div[2]/p"
+        },
+        "password": {
+            "locatorType": "name",
+            "locatorValue": "password"
+        },
+        "confirmPassword": {
+            "locatorType": "name",
+            "locatorValue": "password_confirmation"
+        },
+        "createAccountButton": {
+            "locatorType": "xpath",
+            "locatorValue": "//input[@value='Create account']"
         }
     },
 
@@ -418,11 +430,21 @@
     },
 
     "usersManagement": {
-        "signOut": {
+        "pendingTab": {
+            "locatorType": "id",
+            "locatorValue": "tabPending"
+        },
+        "emailFilter": {
             "locatorType": "xpath",
-            "locatorValue": "//*[@id='appLogin']//a[text()='Sign Out']"
+            "locatorValue": "//*[@header-text='Users management']/*[@role='tabpanel']/div[1]//div[@id='scrollBodyTableContainer']/div[2]/span[1]/input[@placeholder='Filter']"
+        },
+        "acceptFirstRow": {
+            "locatorType": "xpath",
+            "locatorValue": "//*[@header-text='Users management']/*[@role='tabpanel']/div[1]//div[@id='scrollBodyTableContainer']/div[3]/*[contains(@class, 'aha-action')]/aha-html-echo/div/a[1]"
         }
     }
+
+
 
 
 
