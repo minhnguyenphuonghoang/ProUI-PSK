@@ -23,8 +23,9 @@ exports.config = {
 
 	// Organize spec files into suites. To run specific suite, --suite=<name of suite>
 	suites: {
-		login: ['../Features/Login.feature'],
-		signup: ['../Features/Signup.feature'],
+//		login: ['../Features/Login.feature'],
+//		signup: ['../Features/Signup.feature'],
+		test: ['../Features/test.feature'],
     },
 
 	capabilities: {
@@ -171,7 +172,7 @@ exports.config = {
 		},
 		signup: {
 		    baseUrl: 'https://predix-psk-landing-page-lab.run.aws-usw02-pr.ice.predix.io/#/signup',
-		    "email": "psktest12345@mailinator.com",
+		    "email": "psktest123123@mailinator.com",
 		    "password": "12345678",
 		    "reason": "This is a reason",
 		    "firstName": "Test",
@@ -199,8 +200,7 @@ exports.config = {
 		// define your step definitions in this file
 		require: [
             '../step_definitions/*.js',
-//            '../../Test_Modules/Assets/step_definitions/*',
-//            '../../node_modules/proui-utils/Compressed_Utils/Reporter.js'
+            '../../node_modules/proui-utils/Compressed_Utils/Reporter.js'
 		],
 
 		//format: 'pretty'

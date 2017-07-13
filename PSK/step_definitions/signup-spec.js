@@ -20,11 +20,6 @@ module.exports = function() {
         firstName = browser.params.signup.firstName;
         lastName = browser.params.signup.lastName;
         reason = browser.params.signup.reason;
-
-        console.log(email);
-        console.log(firstName);
-        console.log(lastName);
-        console.log(reason);
         signupPage.setEmail(email).then(function () {
             signupPage.setFirstName(firstName).then(function () {
                 signupPage.setLastName(lastName).then(function () {
@@ -77,6 +72,29 @@ module.exports = function() {
 
         });
     });
+
+
+
+
+
+
+
+    this.When(/^I open the registration link temp$/, function (callback) {
+        email = 'psktest123123';
+        email = email.replace('@mailinator.com','');
+
+        url = 'https://www.mailinator.com/inbox2.jsp?to=<email_here>#/#public_maildirdiv'
+        url = url.replace('<email_here>', email);
+        signupPage.openMailServer(url).then(function () {
+            signupPage.clickRegistrationMail().then(function () {
+                signupPage.openRegistrationLink_temp().then(function () {
+                    callback();
+                });
+            });
+        });
+
+    });
+
 
 };
 

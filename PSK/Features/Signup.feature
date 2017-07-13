@@ -19,7 +19,3 @@ Feature: Signup feature
     Examples:
       | env | user_name | password |
       | baseUrl | username  | password |
-
-
-
-

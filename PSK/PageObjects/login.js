@@ -36,12 +36,19 @@
             },
 
             getLogin: function (url) {
+                browser.ignoreSynchronization = true;
                 browser.driver.get(browser.params.login.baseUrl);
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath('//*[@value="Sign in"]'));
+                browser.wait(EC.visibilityOf(el), 5000);
                 return browser.driver.isElementPresent(by.xpath('//*[@value="Sign in"]'));
             },
 
             checkHomePage: function() {
                 browser.waitForAngular();
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath('//*[@id="headertext"]'));
+                browser.wait(EC.visibilityOf(el), 30000);
                 var title = cem.findElement('landingPage','title');
                 return title.isPresent();
 
