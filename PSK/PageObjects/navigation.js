@@ -11,62 +11,43 @@
     'use strict';
 
 
-    var currentPage = 'loginPage';
+    var currentPage = 'navigation';
 
 
-    var LoginPage = function () {
+    var Navigation = function () {
 
         return {
-
-            get: function () {
-                return browser.driver.get(browser.params.login.baseUrl);
-                browser.waitForAngular();
+            clickAdmin: function () {
+                return cem.findElement(currentPage,'admin').sendKeys(protractor.Key.ENTER);
             },
 
-            setName: function (username) {
-                return cem.findElement(currentPage,'username').sendKeys(username);
+            clickUsersManagement: function () {
+                return cem.findElement(currentPage,'usersManagement').sendKeys(protractor.Key.ENTER);
             },
 
-            setPassword: function (password) {
-                return cem.findElement(currentPage,'password').sendKeys(password);
+            clickUserInfo: function () {
+                return cem.findElement(currentPage,'userInfo').sendKeys(protractor.Key.ENTER);
             },
 
-            clickLogin: function () {
-                return cem.findElement(currentPage,'password').sendKeys(protractor.Key.ENTER);
+            clickSignOut: function () {
+                return cem.findElement(currentPage,'signOut').sendKeys(protractor.Key.ENTER);
             },
 
-            getLogin: function (url) {
-                browser.driver.get(browser.params.login.baseUrl)
-                return browser.driver.isElementPresent(by.xpath('//*[@value="Sign in"]'));
+            navigateToAdmin_UserManagement: function (url) {
+                browser.driver.get(url)
+                return browser.driver.isElementPresent(by.id('tabPending'));
             },
 
-            checkHomePage: function() {
-                browser.waitForAngular();
-//                var title = cem.findElement('landingPage','assetTab');
-//                var EC = protractor.ExpectedConditions;
-//                var el = element(by.xpath('//div[@style="display: none;" and contains(@class,"overlay-loading style-scope instance-view")]'));
-//                browser.wait(EC.visibilityOf(el), 10000);
-
-//                var title = browser.driver.wait(until.(
-//                console.log(title);
-                var title = browser.wait(function(){
-//                    return cem.findElement('landingPage','assetTab');
-                    return element(by.xpath("//*[contains(text(),'Predix Starter Kit')]"), 30000).isPresent();},30000);
-//                console.log(title);
-//                console.log();
-                return title.isPresent();
-
-            },
-
-            checkLogout: function() {
-                //browser.waitForAngular();
-                return browser.driver.isElementPresent(by.name('password'));
-
+            navigateToSignOut: function () {
+                browser.driver.get(url);
+                browser.driver.sleep(3000);
             }
+
+
         }
 
     };
 
-    module.exports = new LoginPage();
+    module.exports = new Navigation();
 
 }());

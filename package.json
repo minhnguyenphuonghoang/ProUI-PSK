@@ -34,7 +34,8 @@
     "bluebird": "*",
     "rally": "*",
     "request-promise":"*",
-    "babel-runtime":"*"
+    "babel-runtime":"*",
+    "grunt-protractor-cucumber-html-report":"*"
   },
   "author": "test",
   "license": "ISC",

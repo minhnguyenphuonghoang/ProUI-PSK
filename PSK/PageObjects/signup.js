@@ -27,7 +27,7 @@
                 return cem.findElement(currentPage,'firstName').sendKeys(firstName);
             },
 
-            setFirstName: function (lastName) {
+            setLastName: function (lastName) {
                 return cem.findElement(currentPage,'lastName').sendKeys(lastName);
             },
 
@@ -39,33 +39,39 @@
                 return cem.findElement(currentPage,'reason').sendKeys(reason);
             },
 
-
-
-
-
-            setPassword: function (password) {
-                return cem.findElement(currentPage,'password').sendKeys(password);
+            getSignup: function (url) {
+                browser.driver.get(browser.params.signup.baseUrl)
+                return browser.driver.isElementPresent(by.xpath('//input[@id="txtEmail"]'));
+//                return cem.findElement(currentPage, 'email');
             },
 
-            clickLogin: function () {
-                return cem.findElement(currentPage,'password').sendKeys(protractor.Key.ENTER);
+            clickSubmit: function () {
+//                return cem.findElement(currentPage,'password').sendKeys(protractor.Key.ENTER);
+                return cem.findElement(currentPage, 'submitButton').click();
             },
 
-            getLogin: function (url) {
-                browser.driver.get(browser.params.login.baseUrl)
-                return browser.driver.isElementPresent(by.xpath('//*[@value="Sign in"]'));
-            },
+
+
+
+
+
+
+//            setPassword: function (password) {
+//                return cem.findElement(currentPage,'password').sendKeys(password);
+//            },
+
 
             checkSuccessfullyMessage: function() {
                 browser.waitForAngular();
-                var title = cem.findElement('landingPage','title');
-                return title.isPresent();
+
+                var message = cem.findElement('signupPage','signUpSuccessfulMessage');
+                return message.isPresent();
 
             }
         }
 
     };
 
-    module.exports = new LoginPage();
+    module.exports = new SignupPage();
 
 }());

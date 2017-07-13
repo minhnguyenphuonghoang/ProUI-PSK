@@ -23,8 +23,8 @@ exports.config = {
 
 	// Organize spec files into suites. To run specific suite, --suite=<name of suite>
 	suites: {
-		login: ['../Features/Login.feature'],
-//		signup: ['../Features/Signup.feature'],
+//		login: ['../Features/Login.feature'],
+		signup: ['../Features/Signup.feature'],
     },
 
 	capabilities: {
@@ -122,7 +122,9 @@ exports.config = {
 
 		// Initializing page object variables
 		loginPage = require('../PageObjects/login.js');
-		apmlandingPage = require('../PageObjects/landing.js');
+		signupPage = require('../PageObjects/signup.js');
+		landingPage = require('../PageObjects/landing.js');
+        navigation = require('../PageObjects/navigation.js');
 
         loginSpec = require('../step_definitions/login-spec.js');
 
@@ -164,21 +166,27 @@ exports.config = {
 			baseUrl: 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/',
 			"username": "predix_admin",
 			"password": "IM_SO_SECRET",
+			"adminUserName": "predix_admin",
+		    "adminPassword": "IM_SO_SECRET",
 		},
 		signup: {
 		    baseUrl: 'https://predix-psk-landing-page-lab.run.aws-usw02-pr.ice.predix.io/#/signup',
-		    "username": "",
+		    "email": "bbb@mailinator.com",
 		    "password": "",
-		    "reason": "",
-		    "first_name": "Test",
-		    "last_name": "Automation",
-		    "admin_user_name": "predix_admin",
-		    "admin_password": "IM_SO_SECRET",
+		    "reason": "this is a reason",
+		    "firstName": "Test",
+		    "lastName": "Automation",
+
+		},
+		navigation: {
+		    "admin_UsersManagement": 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/#/admin/registration-requests',
+		    "signOut": 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/logout'
 		}
+
 
 	},
 
-	resultJsonOutputFile: null,
+	resultJsonOutputFile: './Reports/cucumber_steps_report.json',
 
 	// If true, protractor will restart the browser between each test.
 	// CAUTION: This will cause your tests to slow down drastically.
@@ -191,8 +199,9 @@ exports.config = {
 
 		// define your step definitions in this file
 		require: [
-            '../step_definitions/env.js',
-            '../step_definitions/login-spec.js',
+//            '../step_definitions/env.js',
+//            '../step_definitions/login-spec.js',
+            '../step_definitions/*.js',
             '../../Test_Modules/Assets/step_definitions/*',
             '../../node_modules/proui-utils/Compressed_Utils/Reporter.js'
 		],

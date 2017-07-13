@@ -5,6 +5,12 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        // 0. clean
+//        clean: {
+//            tests: ['tmp']
+//        },
+
+        // 1. jshint
         jshint: {
             files: ['Gruntfile.js', 'step_definitions/*.js'],
             options: {
@@ -16,15 +22,18 @@ module.exports = function(grunt) {
                     document: true
                 }
             }
-
         },
 
+
+        // 2. execute
         execute: {
             target: {
                 src:['./node_modules/proui-utils/updateChromeDriver.js']
             }
         },
 
+
+        // 3. shell
         shell: {
             options: {
                 stdout:true
@@ -42,22 +51,22 @@ module.exports = function(grunt) {
 //            protractor_install: {
 //                command: 'node ./node_modules/protractor/bin/webdriver-manager update --proxy=http://proxy-src.research.ge.com:8080 --ignore_ssl'
 //            },
-            npm_install: {
-                command: 'npm install --only=dev'
-            },
-            npm_update: {
-                command: 'npm update --only=dev'
-            },
-            protractor_install: {
-                command: 'node ./node_modules/protractor/bin/webdriver-manager update --ignore_ssl'
-            },
+//            npm_install: {
+//                command: 'npm install --only=dev'
+//            },
+//            npm_update: {
+//                command: 'npm update --only=dev'
+//            },
+//            protractor_install: {
+//                command: 'node ./node_modules/protractor/bin/webdriver-manager update --ignore_ssl'
+//            },
             // ie_install: {
             //     command: 'node ./node_modules/protractor/bin/webdriver-manager update --ie --proxy=http://proxy-src.research.ge.com:8080'
             // }
 
 
         },
-            protractor: {
+        protractor: {
             default: {
                 options: {
                     keepAlive: false,
@@ -74,23 +83,23 @@ module.exports = function(grunt) {
                 },
             },
                 
-        test: {
-            options: {
-                keepAlive: false,
-                configFile: grunt.option('conf'),
-                args: {cucumberOpts:grunt.option('spec'),suite: grunt.option('suite')}
+            test: {
+                options: {
+                    keepAlive: false,
+                    configFile: grunt.option('conf'),
+                    args: {cucumberOpts:grunt.option('spec'),suite: grunt.option('suite')}
+                },
             },
-        },
 
-        browser:{
-            options: {
-                keepAlive: false,
-                configFile: grunt.option('conf'),
-                args: {cucumberOpts:grunt.option('spec'),suite: grunt.option('suite'), browser: grunt.option('browser')}
+            browser:{
+                options: {
+                    keepAlive: false,
+                    configFile: grunt.option('conf'),
+                    args: {cucumberOpts:grunt.option('spec'),suite: grunt.option('suite'), browser: grunt.option('browser')}
+                },
             },
-        },
 
-        noSuite: {
+            noSuite: {
                 options: {
                     keepAlive: false,
                     configFile: grunt.option('conf'),
@@ -106,17 +115,36 @@ module.exports = function(grunt) {
                 }
             }
         },
-
+//        report: {
+//            options: {
+//                dest: './CucumberReport/',
+//                output: 'report.html',
+//                testJSONResultPath: './Reports/json_report/',
+//                testJSONDirectory: './Reports/',
+//            },
+//        },
+//        'protractor-cucumber-html-report': {
+//            default_options: {
+//                options: {
+//                    dest: 'tmp',
+//                    output: 'report.html',
+//                    testJSONDirectory: './Reports/json_report/',
+//                    reportTitle: "Test report generated via automatic tests"
+//                }
+//            }
+//        }
 
     });
 
     var target = grunt.option('target') || 'def';
 
+    grunt.loadTasks('tasks');
+
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
     grunt.loadNpmTasks('grunt-execute');
 
-    grunt.loadNpmTasks('grunt-contrib-jshint');
+//    grunt.loadNpmTasks('grunt-contrib-jshint');
 
     grunt.loadNpmTasks('grunt-shell-spawn');
 
@@ -154,10 +182,12 @@ module.exports = function(grunt) {
 
     grunt.registerTask('noSuite',  function(arg) {
         try {
+//            grunt.task.run('clean');
             grunt.task.run('jshint');
             grunt.task.run('execute:target');
             grunt.task.run('shell');
             grunt.task.run('protractor:noSuite');
+//            grunt.task.run('protractor-cucumber-html-report');
 
         } catch(e) {
             // Something went wrong.

@@ -5,7 +5,7 @@
 
 
 module.exports = function() {
-    this.Given(/^I navigate to (.*)$/, function (env, callback) {
+    this.Given(/^I navigate to login page (.*)$/, function (env, callback) {
         env = browser.params.login.url;
         loginPage.getLogin(env).then(function (completed) {
             browser.ignoreSynchronization = true;
@@ -36,6 +36,29 @@ module.exports = function() {
             callback();
         });
     });
+
+
+    this.When(/^I log in with Admin role$/, function (callback) {
+        userName = browser.params.login.adminUserName;
+        password = browser.params.login.adminPassword;
+        loginPage.setName(userName).then(function () {
+            loginPage.setPassword(password).then(function () {
+                loginPage.clickLogin().then(function () {
+                    callback();
+                });
+            });
+        });
+    });
+
+
+
+
+
+    this.Then(/^I can use (.*) and (.*) to log in$/, function (username, password, callback) {
+        // Write code here that turns the phrase above into concrete actions
+        callback(null, 'pending');
+    });
+
 
 };
 

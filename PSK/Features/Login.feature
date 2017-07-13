@@ -1,9 +1,9 @@
 @regression
-Feature: User Can Login
+Feature: Login features
 
   Scenario Outline: Login as Admin
 
-    Given I navigate to <env>
+    Given I navigate to login page <env>
     When  I authenticate with valid <user_name> and <password>
     Then  I should see the landing page
 
@@ -11,3 +11,4 @@ Feature: User Can Login
     Examples:
       | env | user_name | password |
       | baseUrl | username  | password |
+

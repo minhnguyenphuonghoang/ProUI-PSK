@@ -394,7 +394,38 @@
             "locatorType": "xpath",
             "locatorValue": "//*[contains(@id,'sign-up-done')]/div/div[2]/p"
         }
+    },
+
+
+    "navigation": {
+        "admin": {
+            "locatorType": "xpath",
+            "locatorValue": "//ul[@id='navitemlist']//a/span[text()='Admin']"
+        },
+        "usersManagement": {
+            "locatorType": "xpath",
+            "locatorValue": "//ul[@id='navitemlist']//a/span[text()='Users management']"
+        },
+        "UserInfo": {
+            "locatorType": "xpath",
+            "locatorValue": "//*[@id='appLogin']"
+        },
+        "signOut": {
+            "locatorType": "xpath",
+            "locatorValue": "//*[@id='appLogin']//a[text()='Sign Out']"
+        }
+
+    },
+
+    "usersManagement": {
+        "signOut": {
+            "locatorType": "xpath",
+            "locatorValue": "//*[@id='appLogin']//a[text()='Sign Out']"
+        }
     }
+
+
+
 
 
 }
