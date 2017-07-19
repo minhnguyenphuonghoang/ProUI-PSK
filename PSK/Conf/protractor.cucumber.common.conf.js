@@ -23,9 +23,9 @@ exports.config = {
 
 	// Organize spec files into suites. To run specific suite, --suite=<name of suite>
 	suites: {
-//		login: ['../Features/Login.feature'],
+		login: ['../Features/Login.feature'],
 //		signup: ['../Features/Signup.feature'],
-		test: ['../Features/test.feature'],
+//		test: ['../Features/test.feature'],
     },
 
 	capabilities: {
