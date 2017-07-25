@@ -65,7 +65,8 @@ module.exports = function(grunt) {
             default: {
                 options: {
                     keepAlive: false,
-                    configFile: 'Common_Template/Conf/protractor.cucumber.common.conf.js',
+                    // configFile: 'Common_Template/Conf/protractor.cucumber.common.conf.js',
+                    configFile: 'PSK/Conf/protractor.cucumber.common.conf.js',
                     args: {suite: 'asset',
                         params:{"login": {
                         "baseUrl":grunt.option('baseUrl'),
