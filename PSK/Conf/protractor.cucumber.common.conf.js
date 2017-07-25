@@ -131,12 +131,12 @@ exports.config = {
 
 
 		// Initializing necessary utils from ProUI-Utils module
-		TestHelper = require('ProUI-Utils').TestHelper;
-		ElementManager = require('ProUI-Utils').ElementManager;
-		Logger = require('ProUI-Utils').Logger;
+		TestHelper = require('proui-utils').TestHelper;
+		ElementManager = require('proui-utils').ElementManager;
+		Logger = require('proui-utils').Logger;
 		cem = new ElementManager('../../../PSK/common-element-repo.json');
 		TestHelper.setElementManager(cem);
-        RestHelper = require('ProUI-Utils').RestHelper;
+        RestHelper = require('proui-utils').RestHelper;
 
 		//commonTestData = require('../TestData/common-test-data.json').data;
 	},
