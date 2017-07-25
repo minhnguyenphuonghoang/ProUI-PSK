@@ -46,15 +46,15 @@ module.exports = function(grunt) {
 //            protractor_install: {
 //                command: 'node ./node_modules/protractor/bin/webdriver-manager update --proxy=http://proxy-src.research.ge.com:8080 --ignore_ssl'
 //            },
-//            npm_install: {
-//                command: 'npm install --only=dev'
-//            },
-//            npm_update: {
-//                command: 'npm update --only=dev'
-//            },
-//            protractor_install: {
-//                command: 'node ./node_modules/protractor/bin/webdriver-manager update --ignore_ssl'
-//            },
+           npm_install: {
+               command: 'npm install --only=dev'
+           },
+           npm_update: {
+               command: 'npm update --only=dev'
+           },
+           protractor_install: {
+               command: 'node ./node_modules/protractor/bin/webdriver-manager update --ignore_ssl'
+           },
             // ie_install: {
             //     command: 'node ./node_modules/protractor/bin/webdriver-manager update --ie --proxy=http://proxy-src.research.ge.com:8080'
             // }
