@@ -75,8 +75,7 @@
                 var childElement = "//*[@id='orgDropdown']//li[text()='<tenant>']";
                 childElement = childElement.replace('<tenant>', tenant);
 
-                browser.findElement(By.xpath(childElement), 15000).click();
-                return browser.driver.sleep(3000);
+                return browser.findElement(By.xpath(childElement), 15000).click();
             },
 
             verifyNoUsersFound: function () {

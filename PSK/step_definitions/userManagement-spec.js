@@ -6,8 +6,7 @@
 
 module.exports = function() {
 
-    this.Then(/^I can accept the account registration request$/, function (callback) {
-        email = browser.params.signup.email;
+    this.Then(/^I can accept the account registration request of email: (.*)$/, function (email, callback) {
         usersManagement.setEmailFilter(email).then(function () {
             usersManagement.clickApprove().then(function () {
                 callback();
@@ -40,7 +39,6 @@ module.exports = function() {
            usersManagement.verifyNoUsersFound().then(function (completed) {
                assert.isTrue(completed, 'Found user: ' + emailAddress + ' while expecting No Results.');
                callback();
-
            });
         });
     });

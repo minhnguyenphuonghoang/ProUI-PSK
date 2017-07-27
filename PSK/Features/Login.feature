@@ -3,7 +3,7 @@ Feature: Login feature
 
   Scenario Outline: Log in as Admin
 
-    @smockTest
+    @smockTest @demo
     Given I navigate to login page
     When  I authenticate with valid username: <user_name> and password: <password>
     Then  I can see the landing page

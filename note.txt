@@ -6,18 +6,5 @@ Automation!@#$%
 
 
 
-  @demo @smockTest
-  Scenario Outline: Decline a registration request
-
-    Given I navigate to login page
-    When  I authenticate with valid username: <user_name> and password: <password>
-    Then  I can see the landing page
-    When  I navigate to Admin - Users Management page
-    When  I select a tenant: <tenant>
-    And   I can decline the account registration request of email: <email> by a reason: <reason>
-    Then  User with email: <email> no longer in Pending Request tab
-
-
-    Examples:
-      | email | first_name | last_name | tenant | reason | user_name | password |
-      | psk_autotest123@mailinator.com | Automation | Test | Automation_test | This is a reason | predix_admin | IM_SO_SECRET |
+  | predix_notfound | IM_SO_SECRET |
+        | predix_notfound | 123456 |
