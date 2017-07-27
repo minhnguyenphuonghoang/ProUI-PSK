@@ -37,7 +37,8 @@
 
             getLogin: function (url) {
                 browser.ignoreSynchronization = true;
-                browser.driver.get(browser.params.login.baseUrl);
+                browser.driver.get(url);
+
                 var EC = protractor.ExpectedConditions;
                 var el = element(by.xpath('//*[@value="Sign in"]'));
                 browser.wait(EC.visibilityOf(el), 5000);
@@ -51,6 +52,16 @@
                 browser.wait(EC.visibilityOf(el), 30000);
                 var title = cem.findElement('landingPage','title');
                 return title.isPresent();
+
+            },
+
+            checkLoginFailErrorMessage: function () {
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath('//*[text()="Unable to verify email or password. Please try again."]'));
+                browser.wait(EC.visibilityOf(el), 30000);
+
+                var errorMessage = cem.findElement('loginPage','errorMessage');
+                return errorMessage.isPresent();
 
             },
 

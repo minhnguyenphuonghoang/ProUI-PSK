@@ -22,19 +22,46 @@
 //            },
 
             setEmailFilter: function (email) {
+                var elementLocator = "//*[starts-with(@id, 'registration-requests-tab')]//div[@id='scrollBodyTableContainer']/div[2]/span[1]/input[@placeholder='Filter']";
                 var EC = protractor.ExpectedConditions;
-                var el = element(by.xpath("//*[@header-text='Users management']/*[@role='tabpanel']/div[1]//div[@id='scrollBodyTableContainer']/div[2]/span[1]/input[@placeholder='Filter']"));
+                var el = element(by.xpath(elementLocator));
                 browser.wait(EC.visibilityOf(el), 15000);
-                return cem.findElement(currentPage,'emailFilter').sendKeys(email);
+                return browser.findElement(By.xpath(elementLocator)).sendKeys(email);
             },
 
             clickApprove: function () {
                 browser.sleep(1000);
+                var elementLocator = "//*[starts-with(@id, 'registration-requests-tab')]//div[@id='scrollBodyTableContainer']/div[3]/*[contains(@class, 'aha-action')]/aha-html-echo/div/a[1]";
                 var EC = protractor.ExpectedConditions;
-                var el = element(by.xpath("//*[@header-text='Users management']/*[@role='tabpanel']/div[1]//div[@id='scrollBodyTableContainer']/div[3]/*[contains(@class, 'aha-action')]/aha-html-echo/div/a[1]"));
+                var el = element(by.xpath(elementLocator));
                 browser.wait(EC.visibilityOf(el), 15000);
-//                return cem.findElement(currentPage,'acceptFirstRow').sendKeys(protractor.Key.ENTER);
-                return cem.findElement(currentPage,'acceptFirstRow').click();
+                return browser.findElement(By.xpath(elementLocator)).click();
+            },
+
+            clickDecline: function () {
+                browser.sleep(1000);
+                var elementLocator = "//*[starts-with(@id, 'registration-requests-tab')]//div[@id='scrollBodyTableContainer']/div[3]/*[contains(@class, 'aha-action')]/aha-html-echo/div/a[2]";
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath(elementLocator));
+                browser.wait(EC.visibilityOf(el), 15000);
+                return browser.findElement(By.xpath(elementLocator)).click();
+            },
+
+            inputReasonToReject: function (reason) {
+                var elementLocator = "//*[@id='rejectRejection']";
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath(elementLocator));
+                browser.wait(EC.visibilityOf(el), 15000);
+                return browser.findElement(By.xpath(elementLocator)).sendKeys(reason);
+            },
+
+            clickRejectButton: function () {
+                var elementLocator = "//*[@id='rejectModel']//button[@id='btnModalPositive']";
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath(elementLocator));
+                browser.wait(EC.visibilityOf(el), 15000);
+                browser.findElement(By.xpath(elementLocator)).click();
+                return browser.driver.sleep(3000);
             },
 
             selectATenant: function (tenant) {
@@ -48,8 +75,17 @@
                 var childElement = "//*[@id='orgDropdown']//li[text()='<tenant>']";
                 childElement = childElement.replace('<tenant>', tenant);
 
-                return browser.findElement(By.xpath(childElement), 15000).click();
+                browser.findElement(By.xpath(childElement), 15000).click();
+                return browser.driver.sleep(3000);
+            },
 
+            verifyNoUsersFound: function () {
+                var elementLocator = "//*[starts-with(@id, 'registration-requests-tab')]//*[text()='No Results']";
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath(elementLocator));
+                browser.wait(EC.visibilityOf(el), 15000);
+                browser.findElement(By.xpath(elementLocator)).click();
+                return browser.driver.isElementPresent(by.xpath(elementLocator));
             }
 
 

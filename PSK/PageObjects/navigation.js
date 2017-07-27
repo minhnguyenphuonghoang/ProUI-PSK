@@ -34,12 +34,12 @@
             },
 
             navigateToAdmin_UserManagement: function () {
-                url = browser.params.navigation.admin_UsersManagement;
+                var url = browser.params.navigation.admin_UsersManagement;
                 browser.driver.get(url);
                 var EC = protractor.ExpectedConditions;
-                var el = element(by.xpath("//*[@id='tabPending']"));
-                browser.wait(EC.visibilityOf(el), 15000);
-                return browser.driver.isElementPresent(by.id('tabPending'));
+                var el = element(by.xpath("//div[@id='tabtitle'][contains(., 'Pending Request')]"));
+                browser.wait(EC.visibilityOf(el), 30000);
+                return browser.driver.isElementPresent(by.xpath("//div[@id='tabtitle'][contains(., 'Pending Request')]"));
             },
 
             navigateToSignOut: function () {

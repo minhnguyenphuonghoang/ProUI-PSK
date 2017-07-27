@@ -5,8 +5,8 @@
 
 
 module.exports = function() {
-    this.Given(/^I navigate to signup page (.*)$/, function (env, callback) {
-        env = browser.params.signup.url;
+    this.Given(/^I navigate to signup page$/, function (callback) {
+        var env = browser.params.signup.baseUrl;
         signupPage.getSignup(env).then(function (completed) {
             browser.ignoreSynchronization = true;
             assert.isTrue(completed, 'Not Signup page');
@@ -15,17 +15,17 @@ module.exports = function() {
     });
 
 
-    this.When(/^I sign up with valid (.*), (.*), (.*), (.*)$/, function (email, firstName, lastName, reason, callback) {
-        email = browser.params.signup.email;
-        firstName = browser.params.signup.firstName;
-        lastName = browser.params.signup.lastName;
-        reason = browser.params.signup.reason;
+    this.When(/^I sign up with valid email address: (.*), first name: (.*), last name: (.*), tenant: (.*), reason (.*)$/,
+        function (email, firstName, lastName, tenant, reason, callback) {
+
         signupPage.setEmail(email).then(function () {
             signupPage.setFirstName(firstName).then(function () {
                 signupPage.setLastName(lastName).then(function () {
-                    signupPage.setReason(reason).then(function () {
-                        signupPage.clickSubmit().then(function () {
-                            callback();
+                    signupPage.selectTenant(tenant).then(function () {
+                        signupPage.setReason(reason).then(function () {
+                            signupPage.clickSubmit().then(function () {
+                                callback();
+                            });
                         });
                     });
                 });

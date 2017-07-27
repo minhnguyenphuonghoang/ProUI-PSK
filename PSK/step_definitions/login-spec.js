@@ -5,8 +5,8 @@
 
 
 module.exports = function() {
-    this.Given(/^I navigate to login page (.*)$/, function (env, callback) {
-        env = browser.params.login.url;
+    this.Given(/^I navigate to login page$/, function (callback) {
+        var env = browser.params.login.baseUrl;
         loginPage.getLogin(env).then(function (completed) {
             browser.ignoreSynchronization = true;
             assert.isTrue(completed, 'Not login page');
@@ -15,9 +15,7 @@ module.exports = function() {
     });
 
 
-    this.When(/^I authenticate with valid (.*) and (.*)$/, function (userName, password, callback) {
-        userName = browser.params.login.username;
-        password = browser.params.login.password;
+    this.When(/^I authenticate with valid username: (.*) and password: (.*)$/, function (userName, password, callback) {
         loginPage.setName(userName).then(function () {
             loginPage.setPassword(password).then(function () {
                 loginPage.clickLogin().then(function () {
@@ -25,10 +23,9 @@ module.exports = function() {
                 });
             });
         });
-
     });
 
-    this.Then(/^I should see the landing page$/, function (callback) {
+    this.Then(/^I can see the landing page$/, function (callback) {
         loginPage.checkHomePage().then(function (completed) {
             assert.isTrue(completed, 'Not logged in');
             callback();
@@ -48,7 +45,12 @@ module.exports = function() {
         });
     });
 
-
+    this.Then(/^I can see the error message$/, function (callback) {
+        loginPage.checkLoginFailErrorMessage().then(function (completed) {
+            assert.isTrue(completed, 'The error message displays incorrectly.');
+            callback();
+        });
+    });
 
 
 

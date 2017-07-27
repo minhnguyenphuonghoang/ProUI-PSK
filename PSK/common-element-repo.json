@@ -26,6 +26,10 @@
         "signInButton": {
             "locatorType": "css",
             "locatorValue": ".island-button"
+        },
+        "errorMessage": {
+            "locatorType": "xpath",
+            "locatorValue": "//*[text()='Unable to verify email or password. Please try again.']"
         }
     },
     "landingPage": {
@@ -392,7 +396,7 @@
         },
         "signUpSuccessfulMessage": {
             "locatorType": "xpath",
-            "locatorValue": "//*[contains(@id,'sign-up-done')]/div/div[2]/p"
+            "locatorValue": "//*[text()='Thanks for your interest in PSK. Your request has been submitted and it will email you the status within 24h.']"
         },
         "password": {
             "locatorType": "name",
@@ -405,7 +409,12 @@
         "createAccountButton": {
             "locatorType": "xpath",
             "locatorValue": "//input[@value='Create account']"
+        },
+        "tenant": {
+            "locatorType": "xpath",
+            "locatorValue": "//select[@id='ddlOrganization']"
         }
+
     },
 
 
@@ -432,7 +441,7 @@
     "usersManagement": {
         "pendingTab": {
             "locatorType": "id",
-            "locatorValue": "tabPending"
+            "locatorValue": "tabtitle"
         },
         "emailFilter": {
             "locatorType": "xpath",
@@ -442,6 +451,10 @@
             "locatorType": "xpath",
             "locatorValue": "//*[@header-text='Users management']/*[@role='tabpanel']/div[1]//div[@id='scrollBodyTableContainer']/div[3]/*[contains(@class, 'aha-action')]/aha-html-echo/div/a[1]"
         },
+        "declineFirstRow": {
+            "locatorType": "xpath",
+            "locatorValue": "//*[@header-text='Users management']/*[@role='tabpanel']/div[1]//div[@id='scrollBodyTableContainer']/div[3]/*[contains(@class, 'aha-action')]/aha-html-echo/div/a[2]"
+        },
         "organization": {
             "locatorType": "xpath",
             "locatorValue": "//*[@id='orgDropdown']"
@@ -449,8 +462,15 @@
         "organization_test": {
             "locatorType": "xpath",
             "locatorValue": "//*[@id='orgDropdown']//li[text()='Test2']"
+        },
+        "reasonToRejectButton": {
+            "locatorType": "xpath",
+            "locatorValue": "//button[@id='btnModalPositive']"
+        },
+        "reasonToRejectInput": {
+            "locatorType": "xpath",
+            "locatorValue": "//*[@id='rejectRejection']"
         }
-
 
     }
 

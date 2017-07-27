@@ -26,6 +26,13 @@
                 return cem.findElement(currentPage,'firstName').sendKeys(firstName);
             },
 
+            selectTenant: function (tenant) {
+                var element = '//select[@id="ddlOrganization"]/option[text()="<tenant>"]';
+                element = element.replace("<tenant>", tenant);
+                cem.findElement(currentPage,'tenant').click();
+                return browser.findElement(By.xpath(element), 15000).click();
+            },
+
             setLastName: function (lastName) {
                 return cem.findElement(currentPage,'lastName').sendKeys(lastName);
             },
@@ -40,7 +47,8 @@
 
             getSignup: function (url) {
                 browser.ignoreSynchronization = true;
-                browser.driver.get(browser.params.signup.baseUrl);
+                browser.driver.get(url);
+
                 var EC = protractor.ExpectedConditions;
                 var el = element(by.xpath('//input[@id="txtEmail"]'));
                 browser.wait(EC.visibilityOf(el), 30000);

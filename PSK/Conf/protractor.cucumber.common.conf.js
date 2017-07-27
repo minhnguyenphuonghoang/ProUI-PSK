@@ -175,15 +175,15 @@ exports.config = {
 		    "adminPassword": "IM_SO_SECRET",
 		},
 		signup: {
-		    baseUrl: 'https://predix-psk-landing-page-lab.run.aws-usw02-pr.ice.predix.io/#/signup',
-		    "email": "psktest123123@mailinator.com",
+		    baseUrl: 'https://predix-psk-landing-page-dev.run.aws-usw02-pr.ice.predix.io/#/signup',
+		    "email": "psktest123@mailinator.com",
 		    "password": "12345678",
 		    "reason": "This is a reason",
 		    "firstName": "Test",
 		    "lastName": "Automation",
 		},
 		navigation: {
-		    "admin_UsersManagement": 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/#/admin/registration-requests',
+		    "admin_UsersManagement": 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/#/admin/users-management',
 		    "signOut": 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/logout'
 		},
 		userManagement: {
