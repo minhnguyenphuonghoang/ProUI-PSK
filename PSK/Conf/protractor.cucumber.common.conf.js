@@ -23,9 +23,10 @@ exports.config = {
 
 	// Organize spec files into suites. To run specific suite, --suite=<name of suite>
 	suites: {
-		login: ['../Features/Login.feature'],
-//		signup: ['../Features/Signup.feature'],
-//		test: ['../Features/test.feature'],
+		// login: ['../Features/Login.feature'],
+		// signup: ['../Features/Signup.feature'],
+		// test: ['../Features/test.feature'],
+		user_management: ['../Features/UserManagement.feature'],
     },
 
 	capabilities: {
@@ -130,6 +131,9 @@ exports.config = {
         loginSpec = require('../step_definitions/login-spec.js');
 
 
+
+
+
 		// Initializing necessary utils from ProUI-Utils module
 		TestHelper = require('proui-utils').TestHelper;
 		ElementManager = require('proui-utils').ElementManager;
@@ -181,6 +185,9 @@ exports.config = {
 		navigation: {
 		    "admin_UsersManagement": 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/#/admin/registration-requests',
 		    "signOut": 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/logout'
+		},
+		userManagement: {
+			"tenant_name":"Automation_test",
 		}
 
 
@@ -200,7 +207,8 @@ exports.config = {
 		// define your step definitions in this file
 		require: [
             '../step_definitions/*.js',
-            '../../node_modules/proui-utils/Compressed_Utils/Reporter.js'
+            '../../node_modules/proui-utils/Compressed_Utils/Reporter.js',
+
 		],
 
 		//format: 'pretty'

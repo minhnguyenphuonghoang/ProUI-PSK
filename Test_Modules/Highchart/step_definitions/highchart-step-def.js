@@ -15,17 +15,17 @@ var myStepDefinitionsWrapper = function () {
 	}
 
 	//'use strict';
-	this.Given(/^I navigate (.*)$/, function (env, callback) {
-		browser.driver.get(env).then(function () {
-			browser.ignoreSynchronization = true;
-		 	//geSSOLogin();
-
-			TestHelper.setElementManager(hem);
-			TestHelper.isElementPresent('homePage', 'lineChartLink').then(function () {
-				callback();
-			});
-		});
-	});
+	// this.Given(/^I navigate (.*)$/, function (env, callback) {
+	// 	browser.driver.get(env).then(function () {
+	// 		browser.ignoreSynchronization = true;
+	// 	 	//geSSOLogin();
+    //
+	// 		TestHelper.setElementManager(hem);
+	// 		TestHelper.isElementPresent('homePage', 'lineChartLink').then(function () {
+	// 			callback();
+	// 		});
+	// 	});
+	// });
 
 	this.When(/^I click on Line chart$/, function (callback) {
 		TestHelper.elementToBeClickable('homePage', 'lineChartLink').then(function () {

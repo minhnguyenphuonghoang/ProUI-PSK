@@ -35,7 +35,23 @@
                 browser.wait(EC.visibilityOf(el), 15000);
 //                return cem.findElement(currentPage,'acceptFirstRow').sendKeys(protractor.Key.ENTER);
                 return cem.findElement(currentPage,'acceptFirstRow').click();
+            },
+
+            selectATenant: function (tenant) {
+                browser.sleep(1000);
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath("//*[@id='orgDropdown']"));
+                browser.wait(EC.visibilityOf(el), 15000);
+
+                cem.findElement(currentPage, 'organization').click();
+
+                var childElement = "//*[@id='orgDropdown']//li[text()='<tenant>']";
+                childElement = childElement.replace('<tenant>', tenant);
+
+                return browser.findElement(By.xpath(childElement), 15000).click();
+
             }
+
 
 
 

@@ -20,3 +20,17 @@ Automation!@#$%
     When  I open the registration link
     Then  I can create password
     Then  I should see the landing page
+
+
+
+
+
+    #    Given I navigate to login page <env>
+    #    When  I authenticate with valid <user_name> and <password>
+    #    Then  I should see the landing page
+    #    When  I navigate to Admin - Users Management page
+    #    Then  I Should
+
+
+
+

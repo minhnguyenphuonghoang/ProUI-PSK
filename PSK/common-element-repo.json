@@ -441,7 +441,17 @@
         "acceptFirstRow": {
             "locatorType": "xpath",
             "locatorValue": "//*[@header-text='Users management']/*[@role='tabpanel']/div[1]//div[@id='scrollBodyTableContainer']/div[3]/*[contains(@class, 'aha-action')]/aha-html-echo/div/a[1]"
+        },
+        "organization": {
+            "locatorType": "xpath",
+            "locatorValue": "//*[@id='orgDropdown']"
+        },
+        "organization_test": {
+            "locatorType": "xpath",
+            "locatorValue": "//*[@id='orgDropdown']//li[text()='Test2']"
         }
+
+
     }
 
 

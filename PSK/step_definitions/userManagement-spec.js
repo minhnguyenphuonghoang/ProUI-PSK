@@ -17,6 +17,17 @@ module.exports = function() {
     });
 
 
+    this.Then(/^I select a tenant (.*)$/, function (tenant, callback) {
+        usersManagement.selectATenant(tenant).then(function () {
+           callback();
+        });
+
+        callback(null, 'pending');
+    });
+
+
+
+
 
 };
 
