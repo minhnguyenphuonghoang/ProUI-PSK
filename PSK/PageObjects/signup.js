@@ -98,6 +98,8 @@
                     browser.driver.get(data);
                 });
                 return browser.sleep(2000);
+                // browser.switchAppTo()
+
             },
 
             checkSuccessfullyMessage: function() {

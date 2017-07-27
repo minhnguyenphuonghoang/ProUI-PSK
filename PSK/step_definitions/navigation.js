@@ -25,6 +25,15 @@ module.exports = function() {
 
 
 
+    this.When(/^I navigate to Admin - Organizations page$/, function (callback) {
+        navigation.navigateToAdmin_Organization().then(function (completed) {
+            assert.isTrue(completed, 'Not Admin - Organization Management screen');
+            callback();
+        });
+    });
+
+
+
 };
 
 

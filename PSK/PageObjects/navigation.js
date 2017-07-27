@@ -46,7 +46,18 @@
                 browser.driver.get(url);
                 return browser.driver.sleep(3000);
 
-            }
+            },
+
+
+            navigateToAdmin_Organization: function () {
+                var url = browser.params.navigation.admin_UsersManagement;
+                browser.driver.get(url);
+                var elementLocator = "//*[starts-with(@id,'organizations-management-view')]//button[contains(.,'New organization')]";
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath(elementLocator));
+                browser.wait(EC.visibilityOf(el), 30000);
+                return browser.driver.isElementPresent(by.xpath(elementLocator));
+            },
 
 
         }

@@ -162,7 +162,6 @@ exports.config = {
 
 	// A callback function after tests are launched
 	afterLaunch: function () {
-
 	},
 
     // Browser parameters for feature files.
@@ -193,7 +192,7 @@ exports.config = {
 
 	},
 
-	resultJsonOutputFile: './Reports/cucumber_steps_report.json',
+
 
 	// If true, protractor will restart the browser between each test.
 	// CAUTION: This will cause your tests to slow down drastically.

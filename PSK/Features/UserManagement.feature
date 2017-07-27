@@ -41,8 +41,8 @@ Feature: User management
       | email | first_name | last_name | tenant | reason | user_name | password |
       | psk_automation_test4@mailinator.com | Automation | Test | Automation_test | This is a reason | predix_admin | IM_SO_SECRET |
 
-  @smockTest
-  Scenario Outline: Accept with no reason
+
+  Scenario Outline: Accept a registration request with no reason
 
     Given I navigate to signup page
     When  I sign up with valid email address: <email>, first name: <first_name>, last name: <last_name>, tenant: <tenant>, reason <reason>
@@ -60,8 +60,8 @@ Feature: User management
       | email | first_name | last_name | tenant | reason | user_name | password |
       | psk_automation_test5@mailinator.com | Automation | Test | Automation_test |  | predix_admin | IM_SO_SECRET |
 
-  @smockTest
-  Scenario Outline: Decline a registration request
+
+  Scenario Outline: Decline a registration request with empty reason
 
     Given I navigate to signup page
     When  I sign up with valid email address: <email>, first name: <first_name>, last name: <last_name>, tenant: <tenant>, reason <reason>
