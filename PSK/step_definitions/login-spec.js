@@ -7,6 +7,7 @@
 module.exports = function() {
     this.Given(/^I navigate to login page$/, function (callback) {
         var env = browser.params.login.baseUrl;
+
         loginPage.getLogin(env).then(function (completed) {
             browser.ignoreSynchronization = true;
             assert.isTrue(completed, 'Not login page');
@@ -16,6 +17,7 @@ module.exports = function() {
 
 
     this.When(/^I authenticate with valid username: (.*) and password: (.*)$/, function (userName, password, callback) {
+
         loginPage.setName(userName).then(function () {
             loginPage.setPassword(password).then(function () {
                 loginPage.clickLogin().then(function () {
