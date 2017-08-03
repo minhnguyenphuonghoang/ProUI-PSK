@@ -33,6 +33,15 @@ module.exports = function() {
     });
 
 
+    this.When(/^I navigate to Device Registration$/, function (callback) {
+        navigation.navigateToDeviceRegistration().then(function (completed) {
+            assert.isTrue(completed, 'Not Device registration screen');
+            callback();
+        });
+
+    });
+
+
 
 };
 

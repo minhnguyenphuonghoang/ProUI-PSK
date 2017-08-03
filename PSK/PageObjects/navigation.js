@@ -59,6 +59,16 @@
                 return browser.driver.isElementPresent(by.xpath(elementLocator));
             },
 
+            navigateToDeviceRegistration: function () {
+                var url = browser.params.navigation.deviceRegistration;
+                browser.driver.get(url);
+
+                var elementLocator = "//button[normalize-space(text())='Register']";
+                var EC = protractor.ExpectedConditions;
+                var el = element(by.xpath(elementLocator));
+                browser.wait(EC.visibilityOf(el), 30000);
+                return browser.driver.isElementPresent(by.xpath(elementLocator));
+            },
 
         }
 

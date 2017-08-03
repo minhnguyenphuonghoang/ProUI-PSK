@@ -184,7 +184,8 @@ exports.config = {
 		},
 		navigation: {
 		    "admin_UsersManagement": 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/#/admin/users-management',
-		    "signOut": 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/logout'
+		    "signOut": 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/logout',
+			"deviceRegistration": 'https://predix-isk-ui-dev.run.aws-usw02-pr.ice.predix.io/#/user-device',
 		},
 		userManagement: {
 			"tenant_name":"Automation_test",
